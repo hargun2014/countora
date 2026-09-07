@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Countora — Object Counter</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="brand">
+
+            <div class="logo">
+                Count<span>ora</span>
+            </div>
+
+            <div class="creator">
+                A Hargun Project
+            </div>
+
+        </div>
+
+
+        <button class="mode-btn">
+            Manual Count
+        </button>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main class="container">
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <h1>
+                Count anything.<br>
+                <span>Faster.</span>
+            </h1>
+
+            <p>
+                Upload a photo and manually count objects with simple clicks.
+            </p>
+
+        </section>
+
+
+        <!-- COUNTER -->
+
+        <section class="counter-card">
+
+
+            <!-- UPLOAD AREA -->
+
+            <div
+                class="upload-area"
+                id="uploadArea"
+            >
+
+                <div class="upload-icon">
+                    📸
+                </div>
+
+                <h2>
+                    Upload an image
+                </h2>
+
+                <p>
+                    Click here or drag and drop an image
+                </p>
+
+                <input
+                    type="file"
+                    id="imageInput"
+                    accept="image/*"
+                    hidden
+                >
+
+                <button id="uploadButton">
+                    Choose Image
+                </button>
+
+            </div>
+
+
+            <!-- WORKSPACE -->
+
+            <div
+                class="workspace"
+                id="workspace"
+            >
+
+
+                <!-- TOOLBAR -->
+
+                <div class="toolbar">
+
+
+                    <button id="undoButton">
+                        ↩ Undo
+                    </button>
+
+
+                    <button id="clearButton">
+                        🗑 Clear
+                    </button>
+
+
+                    <!-- MARKER SIZE -->
+
+                    <div class="marker-size">
+
+                        <label for="markerSize">
+                            Marker Size
+                        </label>
+
+                        <input
+                            type="range"
+                            id="markerSize"
+                            min="20"
+                            max="100"
+                            value="48"
+                        >
+
+                        <span id="markerSizeValue">
+                            48px
+                        </span>
+
+                    </div>
+
+
+                    <!-- COLORS -->
+
+                    <div class="color-picker">
+
+                        <label>
+                            Marker Color
+                        </label>
+
+                        <div class="color-grid">
+
+
+                            <button
+                                class="color-option selected"
+                                data-color="#4f46e5"
+                                style="background:#4f46e5;"
+                                aria-label="Purple"
+                            ></button>
+
+
+                            <button
+                                class="color-option"
+                                data-color="#ef4444"
+                                style="background:#ef4444;"
+                                aria-label="Red"
+                            ></button>
+
+
+                            <button
+                                class="color-option"
+                                data-color="#22c55e"
+                                style="background:#22c55e;"
+                                aria-label="Green"
+                            ></button>
+
+
+                            <button
+                                class="color-option"
+                                data-color="#f59e0b"
+                                style="background:#f59e0b;"
+                                aria-label="Orange"
+                            ></button>
+
+
+                            <button
+                                class="color-option"
+                                data-color="#06b6d4"
+                                style="background:#06b6d4;"
+                                aria-label="Cyan"
+                            ></button>
+
+
+                            <button
+                                class="color-option"
+                                data-color="#ec4899"
+                                style="background:#ec4899;"
+                                aria-label="Pink"
+                            ></button>
+
+
+                            <button
+                                class="color-option"
+                                data-color="#111827"
+                                style="background:#111827;"
+                                aria-label="Black"
+                            ></button>
+
+
+                            <button
+                                class="color-option"
+                                data-color="#ffffff"
+                                style="background:#ffffff;"
+                                aria-label="White"
+                            ></button>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TOTAL -->
+
+                    <div class="total">
+
+                        Total:
+
+                        <strong id="count">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- IMAGE -->
+
+                <div
+                    class="image-container"
+                    id="imageContainer"
+                >
+
+                    <img
+                        id="uploadedImage"
+                        alt="Uploaded image"
+                    >
+
+                    <div id="markers"></div>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <p>
+            Countora — A Hargun Project
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
