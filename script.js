@@ -96,15 +96,8 @@ imageContainer.addEventListener("click", function(event) {
     marker.style.left = x + "px";
     marker.style.top = y + "px";
 
-    const size = Number(markerSize.value);
-
-    marker.style.width = size + "px";
-    marker.style.height = size + "px";
-
-    const textSize = Number(numberSize.value);
-
-    marker.style.fontSize = textSize + "px";
-    marker.style.backgroundColor = currentColor;
+    marker.style.fontSize = Number(numberSize.value) + "px";
+    marker.style.color = currentColor;
 
     markers.appendChild(marker);
 
@@ -117,11 +110,6 @@ markerSize.addEventListener("input", function() {
     const size = Number(markerSize.value);
 
     markerSizeValue.textContent = size + "px";
-
-    markerList.forEach(function(marker) {
-        marker.style.width = size + "px";
-        marker.style.height = size + "px";
-    });
 });
 
 numberSize.addEventListener("input", function() {
@@ -145,7 +133,7 @@ colorOptions.forEach(function(button) {
         button.classList.add("selected");
 
         markerList.forEach(function(marker) {
-            marker.style.backgroundColor = currentColor;
+            marker.style.color = currentColor;
         });
     });
 });
