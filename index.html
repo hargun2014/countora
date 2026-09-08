@@ -1,16 +1,29 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Countora — Object Counter</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
 
+
 <body>
+
+    <!-- NAVBAR -->
 
     <header class="navbar">
 
@@ -26,14 +39,23 @@
 
         </div>
 
-        <button class="mode-btn">
+
+        <button
+            class="mode-btn"
+            type="button"
+        >
             Manual Count
         </button>
 
     </header>
 
 
+    <!-- MAIN -->
+
     <main class="container">
+
+
+        <!-- HERO -->
 
         <section class="hero">
 
@@ -49,9 +71,17 @@
         </section>
 
 
+        <!-- COUNTER -->
+
         <section class="counter-card">
 
-            <div class="upload-area" id="uploadArea">
+
+            <!-- UPLOAD AREA -->
+
+            <div
+                class="upload-area"
+                id="uploadArea"
+            >
 
                 <div class="upload-icon">
                     📸
@@ -65,6 +95,7 @@
                     Click here or drag and drop an image
                 </p>
 
+
                 <input
                     type="file"
                     id="imageInput"
@@ -72,22 +103,42 @@
                     hidden
                 >
 
-                <button id="uploadButton">
+
+                <button
+                    id="uploadButton"
+                    type="button"
+                >
                     Choose Image
                 </button>
 
             </div>
 
 
-            <div class="workspace" id="workspace">
+            <!-- WORKSPACE -->
+
+            <div
+                class="workspace"
+                id="workspace"
+            >
+
+
+                <!-- TOOLBAR -->
 
                 <div class="toolbar">
 
-                    <button id="undoButton">
+
+                    <button
+                        id="undoButton"
+                        type="button"
+                    >
                         ↩ Undo
                     </button>
 
-                    <button id="clearButton">
+
+                    <button
+                        id="clearButton"
+                        type="button"
+                    >
                         🗑 Clear
                     </button>
 
@@ -148,63 +199,81 @@
                             Marker Color
                         </label>
 
+
                         <div class="color-grid">
+
 
                             <button
                                 class="color-option selected"
                                 data-color="#4f46e5"
                                 style="background:#4f46e5;"
-                                aria-label="Purple">
-                            </button>
+                                type="button"
+                                aria-label="Purple"
+                            ></button>
+
 
                             <button
                                 class="color-option"
                                 data-color="#ef4444"
                                 style="background:#ef4444;"
-                                aria-label="Red">
-                            </button>
+                                type="button"
+                                aria-label="Red"
+                            ></button>
+
 
                             <button
                                 class="color-option"
                                 data-color="#22c55e"
                                 style="background:#22c55e;"
-                                aria-label="Green">
-                            </button>
+                                type="button"
+                                aria-label="Green"
+                            ></button>
+
 
                             <button
                                 class="color-option"
                                 data-color="#f59e0b"
                                 style="background:#f59e0b;"
-                                aria-label="Orange">
-                            </button>
+                                type="button"
+                                aria-label="Orange"
+                            ></button>
+
 
                             <button
                                 class="color-option"
                                 data-color="#06b6d4"
                                 style="background:#06b6d4;"
-                                aria-label="Cyan">
-                            </button>
+                                type="button"
+                                aria-label="Cyan"
+                            ></button>
+
 
                             <button
                                 class="color-option"
                                 data-color="#ec4899"
                                 style="background:#ec4899;"
-                                aria-label="Pink">
-                            </button>
+                                type="button"
+                                aria-label="Pink"
+                            ></button>
+
 
                             <button
                                 class="color-option"
                                 data-color="#111827"
                                 style="background:#111827;"
-                                aria-label="Black">
-                            </button>
+                                type="button"
+                                aria-label="Black"
+                            ></button>
+
 
                             <button
                                 class="color-option"
                                 data-color="#ffffff"
                                 style="background:#ffffff;"
-                                aria-label="White">
-                            </button>
+                                type="button"
+                                aria-label="White"
+                            ></button>
+
 
                         </div>
 
@@ -215,7 +284,9 @@
 
                     <div class="total">
 
-                        Total:
+                        <span>
+                            Total:
+                        </span>
 
                         <strong id="count">
                             0
@@ -223,12 +294,16 @@
 
                     </div>
 
+
                 </div>
 
 
+                <!-- IMAGE -->
+
                 <div
                     class="image-container"
-                    id="imageContainer">
+                    id="imageContainer"
+                >
 
                     <img
                         id="uploadedImage"
@@ -239,12 +314,17 @@
 
                 </div>
 
+
             </div>
+
 
         </section>
 
+
     </main>
 
+
+    <!-- FOOTER -->
 
     <footer class="footer">
 
@@ -260,3 +340,4 @@
 </body>
 
 </html>
+```
