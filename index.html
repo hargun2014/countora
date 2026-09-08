@@ -1,292 +1,164 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Countora — Object Counter</title>
-
+    <title>Countora | A Hargun Project</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
+<header>
+    <h1>Countora</h1>
+    <p>A Hargun Project</p>
+</header>
 
-        <div class="brand">
+<div class="container">
 
-            <div class="logo">
-                Count<span>ora</span>
+    <div class="upload-area" id="uploadArea">
+        <h2>Upload an Image</h2>
+        <p>Choose an image or drag and drop it here</p>
+
+        <input type="file" id="imageInput" accept="image/*" hidden>
+
+        <button id="uploadButton" type="button">
+            Choose Image
+        </button>
+    </div>
+
+    <div class="workspace" id="workspace">
+
+        <div class="toolbar">
+
+            <div class="tool">
+                <strong>Count:</strong>
+                <span id="count">0</span>
             </div>
 
-            <div class="creator">
-                A Hargun Project
+            <div class="tool">
+                <label for="markerSize">Marker size</label>
+                <input
+                    type="range"
+                    id="markerSize"
+                    min="0.25"
+                    max="70"
+                    value="20"
+                    step="0.25"
+                >
+                <span id="markerSizeValue">20px</span>
+            </div>
+
+            <div class="tool">
+                <label for="numberSize">Number size</label>
+                <input
+                    type="range"
+                    id="numberSize"
+                    min="1"
+                    max="40"
+                    value="12"
+                >
+                <span id="numberSizeValue">12px</span>
+            </div>
+
+            <div class="tool">
+                <strong>Number color</strong>
+
+                <div class="color-options">
+
+                    <button
+                        class="color-option selected"
+                        data-color="#4f46e5"
+                        style="background:#4f46e5"
+                        type="button">
+                    </button>
+
+                    <button
+                        class="color-option"
+                        data-color="#ef4444"
+                        style="background:#ef4444"
+                        type="button">
+                    </button>
+
+                    <button
+                        class="color-option"
+                        data-color="#22c55e"
+                        style="background:#22c55e"
+                        type="button">
+                    </button>
+
+                    <button
+                        class="color-option"
+                        data-color="#3b82f6"
+                        style="background:#3b82f6"
+                        type="button">
+                    </button>
+
+                    <button
+                        class="color-option"
+                        data-color="#f59e0b"
+                        style="background:#f59e0b"
+                        type="button">
+                    </button>
+
+                    <button
+                        class="color-option"
+                        data-color="#ec4899"
+                        style="background:#ec4899"
+                        type="button">
+                    </button>
+
+                    <button
+                        class="color-option"
+                        data-color="#ffffff"
+                        style="background:#ffffff"
+                        type="button">
+                    </button>
+
+                    <button
+                        class="color-option"
+                        data-color="#000000"
+                        style="background:#000000"
+                        type="button">
+                    </button>
+
+                </div>
             </div>
 
         </div>
 
-        <button class="mode-btn" type="button">
-            Manual Count
-        </button>
+        <div id="imageContainer">
 
-    </header>
-
-
-    <!-- MAIN -->
-    <main class="container">
-
-        <!-- HERO -->
-        <section class="hero">
-
-            <h1>
-                Count anything.<br>
-                <span>Faster.</span>
-            </h1>
-
-            <p>
-                Upload a photo and manually count objects with simple clicks.
-            </p>
-
-        </section>
-
-
-        <!-- COUNTER CARD -->
-        <section class="counter-card">
-
-            <!-- UPLOAD AREA -->
-            <div class="upload-area" id="uploadArea">
-
-                <div class="upload-icon">
-                    📸
-                </div>
-
-                <h2>
-                    Upload an image
-                </h2>
-
-                <p>
-                    Click here or drag and drop an image
-                </p>
-
-                <input
-                    type="file"
-                    id="imageInput"
-                    accept="image/*"
-                    hidden
-                >
-
-                <button
-                    id="uploadButton"
-                    type="button"
-                >
-                    Choose Image
-                </button>
-
-            </div>
-
-
-            <!-- WORKSPACE -->
-            <div
-                class="workspace"
-                id="workspace"
+            <img
+                id="uploadedImage"
+                alt="Uploaded image"
             >
 
-                <!-- TOOLBAR -->
-                <div class="toolbar">
+            <div id="markers"></div>
 
-                    <button
-                        id="undoButton"
-                        type="button"
-                    >
-                        ↩ Undo
-                    </button>
+        </div>
 
-                    <button
-                        id="clearButton"
-                        type="button"
-                    >
-                        🗑 Clear
-                    </button>
+        <div class="actions">
 
+            <button id="undoButton" type="button">
+                Undo
+            </button>
 
-                    <!-- MARKER SIZE -->
-                    <div class="marker-size">
+            <button id="clearButton" type="button">
+                Clear
+            </button>
 
-                        <label for="markerSize">
-                            Marker Size
-                        </label>
+        </div>
 
-                        <input
-                            type="range"
-                            id="markerSize"
-                            min="0.25"
-                            max="70"
-                            step="0.25"
-                            value="20"
-                        >
+    </div>
 
-                        <span id="markerSizeValue">
-                            20px
-                        </span>
+</div>
 
-                    </div>
+<footer>
+    Countora | A Hargun Project
+</footer>
 
-
-                    <!-- NUMBER SIZE -->
-                    <div class="number-size">
-
-                        <label for="numberSize">
-                            Number Size
-                        </label>
-
-                        <input
-                            type="range"
-                            id="numberSize"
-                            min="1"
-                            max="40"
-                            step="1"
-                            value="12"
-                        >
-
-                        <span id="numberSizeValue">
-                            12px
-                        </span>
-
-                    </div>
-
-
-                    <!-- COLOR PICKER -->
-                    <div class="color-picker">
-
-                        <label>
-                            Marker Color
-                        </label>
-
-                        <div class="color-grid">
-
-                            <button
-                                class="color-option selected"
-                                data-color="#4f46e5"
-                                style="background:#4f46e5;"
-                                type="button"
-                                aria-label="Purple"
-                            ></button>
-
-                            <button
-                                class="color-option"
-                                data-color="#ef4444"
-                                style="background:#ef4444;"
-                                type="button"
-                                aria-label="Red"
-                            ></button>
-
-                            <button
-                                class="color-option"
-                                data-color="#22c55e"
-                                style="background:#22c55e;"
-                                type="button"
-                                aria-label="Green"
-                            ></button>
-
-                            <button
-                                class="color-option"
-                                data-color="#f59e0b"
-                                style="background:#f59e0b;"
-                                type="button"
-                                aria-label="Orange"
-                            ></button>
-
-                            <button
-                                class="color-option"
-                                data-color="#06b6d4"
-                                style="background:#06b6d4;"
-                                type="button"
-                                aria-label="Cyan"
-                            ></button>
-
-                            <button
-                                class="color-option"
-                                data-color="#ec4899"
-                                style="background:#ec4899;"
-                                type="button"
-                                aria-label="Pink"
-                            ></button>
-
-                            <button
-                                class="color-option"
-                                data-color="#111827"
-                                style="background:#111827;"
-                                type="button"
-                                aria-label="Black"
-                            ></button>
-
-                            <button
-                                class="color-option"
-                                data-color="#ffffff"
-                                style="background:#ffffff;"
-                                type="button"
-                                aria-label="White"
-                            ></button>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- TOTAL -->
-                    <div class="total">
-
-                        <span>
-                            Total:
-                        </span>
-
-                        <strong id="count">
-                            0
-                        </strong>
-
-                    </div>
-
-                </div>
-
-
-                <!-- IMAGE CONTAINER -->
-                <div
-                    class="image-container"
-                    id="imageContainer"
-                >
-
-                    <img
-                        id="uploadedImage"
-                        alt="Uploaded image"
-                    >
-
-                    <div id="markers"></div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer class="footer">
-
-        <p>
-            Countora — A Hargun Project
-        </p>
-
-    </footer>
-
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
-
 </html>
-```
