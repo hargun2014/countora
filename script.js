@@ -1,7 +1,3 @@
-// ============================
-// ELEMENTS
-// ============================
-
 const imageInput = document.getElementById("imageInput");
 const uploadButton = document.getElementById("uploadButton");
 const uploadArea = document.getElementById("uploadArea");
@@ -24,29 +20,19 @@ const numberSizeValue = document.getElementById("numberSizeValue");
 
 const colorOptions = document.querySelectorAll(".color-option");
 
-
-// ============================
-// SETTINGS
-// ============================
-
 let count = 0;
 let markerList = [];
 let currentColor = "#4f46e5";
 
-
-// ============================
-// OPEN FILE PICKER
-// ============================
-
-uploadButton.addEventListener("click", function (event) {
+function openFilePicker(event) {
     event.stopPropagation();
-
     imageInput.value = "";
     imageInput.click();
-});
+}
 
+uploadButton.addEventListener("click", openFilePicker);
 
-uploadArea.addEventListener("click", function (event) {
+uploadArea.addEventListener("click", function(event) {
     if (event.target === uploadButton) {
         return;
     }
@@ -55,69 +41,42 @@ uploadArea.addEventListener("click", function (event) {
     imageInput.click();
 });
 
-
-// ============================
-// LOAD IMAGE
-// ============================
-
 function loadImageFile(file) {
-
     if (!file) {
         return;
     }
 
-    if (!file.type.startsWith("image/")) {
+    if (!file.type || !file.type.startsWith("image/")) {
         alert("Please choose an image file.");
         return;
     }
 
+    resetCounter();
+
     const imageURL = URL.createObjectURL(file);
+
+    uploadedImage.onload = function() {
+        updateMarkerLayer();
+        URL.revokeObjectURL(imageURL);
+    };
 
     uploadedImage.src = imageURL;
 
     uploadArea.style.display = "none";
     workspace.style.display = "block";
-
-    resetCounter();
 }
 
-
-// ============================
-// IMAGE SELECTED
-// ============================
-
-imageInput.addEventListener("change", function () {
-
+imageInput.addEventListener("change", function() {
     const file = imageInput.files[0];
-
     loadImageFile(file);
-
 });
-
-
-// ============================
-// IMAGE LOADED
-// ============================
-
-uploadedImage.addEventListener("load", function () {
-    updateMarkerLayer();
-});
-
 
 function updateMarkerLayer() {
-
     markers.style.width = uploadedImage.clientWidth + "px";
     markers.style.height = uploadedImage.clientHeight + "px";
-
 }
 
-
-// ============================
-// COUNT OBJECTS
-// ============================
-
-imageContainer.addEventListener("click", function (event) {
-
+imageContainer.addEventListener("click", function(event) {
     if (event.target !== uploadedImage) {
         return;
     }
@@ -132,21 +91,19 @@ imageContainer.addEventListener("click", function (event) {
     const marker = document.createElement("div");
 
     marker.className = "marker";
-
     marker.textContent = count;
 
     marker.style.left = x + "px";
     marker.style.top = y + "px";
 
-    const markerSizeNumber = Number(markerSize.value);
+    const size = Number(markerSize.value);
 
-    marker.style.width = markerSizeNumber + "px";
-    marker.style.height = markerSizeNumber + "px";
+    marker.style.width = size + "px";
+    marker.style.height = size + "px";
 
-    const numberSizeNumber = Number(numberSize.value);
+    const textSize = Number(numberSize.value);
 
-    marker.style.fontSize = numberSizeNumber + "px";
-
+    marker.style.fontSize = textSize + "px";
     marker.style.backgroundColor = currentColor;
 
     markers.appendChild(marker);
@@ -154,80 +111,46 @@ imageContainer.addEventListener("click", function (event) {
     markerList.push(marker);
 
     countDisplay.textContent = count;
-
 });
 
-
-// ============================
-// MARKER SIZE
-// ============================
-
-markerSize.addEventListener("input", function () {
-
+markerSize.addEventListener("input", function() {
     const size = Number(markerSize.value);
 
     markerSizeValue.textContent = size + "px";
 
-    markerList.forEach(function (marker) {
-
+    markerList.forEach(function(marker) {
         marker.style.width = size + "px";
         marker.style.height = size + "px";
-
     });
-
 });
 
-
-// ============================
-// NUMBER SIZE
-// ============================
-
-numberSize.addEventListener("input", function () {
-
+numberSize.addEventListener("input", function() {
     const size = Number(numberSize.value);
 
     numberSizeValue.textContent = size + "px";
 
-    markerList.forEach(function (marker) {
-
+    markerList.forEach(function(marker) {
         marker.style.fontSize = size + "px";
-
     });
-
 });
 
-
-// ============================
-// COLOR PICKER
-// ============================
-
-colorOptions.forEach(function (button) {
-
-    button.addEventListener("click", function () {
-
+colorOptions.forEach(function(button) {
+    button.addEventListener("click", function() {
         currentColor = button.dataset.color;
 
-        colorOptions.forEach(function (option) {
+        colorOptions.forEach(function(option) {
             option.classList.remove("selected");
         });
 
         button.classList.add("selected");
 
-        markerList.forEach(function (marker) {
+        markerList.forEach(function(marker) {
             marker.style.backgroundColor = currentColor;
         });
-
     });
-
 });
 
-
-// ============================
-// UNDO
-// ============================
-
-undoButton.addEventListener("click", function () {
-
+undoButton.addEventListener("click", function() {
     if (markerList.length === 0) {
         return;
     }
@@ -239,68 +162,41 @@ undoButton.addEventListener("click", function () {
     count--;
 
     countDisplay.textContent = count;
-
 });
 
-
-// ============================
-// CLEAR
-// ============================
-
-clearButton.addEventListener("click", function () {
-
+clearButton.addEventListener("click", function() {
     resetCounter();
-
 });
-
-
-// ============================
-// RESET COUNTER
-// ============================
 
 function resetCounter() {
-
     count = 0;
 
     countDisplay.textContent = "0";
 
-    markerList.forEach(function (marker) {
+    markerList.forEach(function(marker) {
         marker.remove();
     });
 
     markerList = [];
 
-    markerSize.value = 20;
+    markerSize.value = "20";
     markerSizeValue.textContent = "20px";
 
-    numberSize.value = 12;
+    numberSize.value = "12";
     numberSizeValue.textContent = "12px";
-
 }
 
-
-// ============================
-// DRAG & DROP
-// ============================
-
-uploadArea.addEventListener("dragover", function (event) {
-
+uploadArea.addEventListener("dragover", function(event) {
     event.preventDefault();
 
     uploadArea.style.borderColor = "#635bff";
-
 });
 
-
-uploadArea.addEventListener("dragleave", function () {
-
+uploadArea.addEventListener("dragleave", function() {
     uploadArea.style.borderColor = "";
-
 });
 
-
-uploadArea.addEventListener("drop", function (event) {
-
+uploadArea.addEventListener("drop", function(event) {
     event.preventDefault();
 
     uploadArea.style.borderColor = "";
@@ -308,5 +204,4 @@ uploadArea.addEventListener("drop", function (event) {
     const file = event.dataTransfer.files[0];
 
     loadImageFile(file);
-
 });
