@@ -1,3 +1,4 @@
+```css
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +11,7 @@
     --text: #172033;
     --muted: #6b7280;
     --background: #f7f8fc;
-    --card: rgba(255, 255, 255, 0.82);
+    --card: rgba(255, 255, 255, 0.84);
 }
 
 html {
@@ -26,166 +27,93 @@ body {
 }
 
 
-/* ============================
-   ANIMATED BACKGROUND
-   ============================ */
+/* BACKGROUND */
 
 body::before,
 body::after {
     content: "";
     position: fixed;
-
     width: 420px;
     height: 420px;
-
     border-radius: 50%;
-
     filter: blur(100px);
-
     opacity: 0.22;
-
     pointer-events: none;
-
     z-index: -5;
 }
 
 body::before {
     background: #635bff;
-
     top: -180px;
     left: -160px;
-
-    animation:
-        backgroundFloat1
-        14s
-        ease-in-out
-        infinite
-        alternate;
+    animation: float1 14s ease-in-out infinite alternate;
 }
 
 body::after {
     background: #22d3ee;
-
     right: -180px;
     bottom: -180px;
-
-    animation:
-        backgroundFloat2
-        16s
-        ease-in-out
-        infinite
-        alternate;
+    animation: float2 16s ease-in-out infinite alternate;
 }
 
-@keyframes backgroundFloat1 {
-
+@keyframes float1 {
     0% {
-        transform:
-            translate(0, 0)
-            scale(1);
+        transform: translate(0, 0) scale(1);
     }
 
     50% {
-        transform:
-            translate(130px, 100px)
-            scale(1.15);
+        transform: translate(130px, 100px) scale(1.15);
     }
 
     100% {
-        transform:
-            translate(50px, 220px)
-            scale(0.9);
+        transform: translate(50px, 220px) scale(0.9);
     }
 }
 
-@keyframes backgroundFloat2 {
-
+@keyframes float2 {
     0% {
-        transform:
-            translate(0, 0)
-            scale(1);
+        transform: translate(0, 0) scale(1);
     }
 
     50% {
-        transform:
-            translate(-120px, -100px)
-            scale(1.15);
+        transform: translate(-120px, -100px) scale(1.15);
     }
 
     100% {
-        transform:
-            translate(-40px, -220px)
-            scale(0.9);
+        transform: translate(-40px, -220px) scale(0.9);
     }
 }
 
 
-/* ============================
-   NAVBAR
-   ============================ */
+/* NAVBAR */
 
 .navbar {
     height: 72px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     padding: 0 6%;
 
-    background:
-        rgba(255, 255, 255, 0.72);
-
+    background: rgba(255, 255, 255, 0.72);
     backdrop-filter: blur(18px);
-
     -webkit-backdrop-filter: blur(18px);
 
-    border-bottom:
-        1px solid
-        rgba(220, 223, 233, 0.8);
+    border-bottom: 1px solid rgba(220, 223, 233, 0.8);
 
     position: sticky;
-
     top: 0;
-
     z-index: 100;
-
-    animation:
-        navbarDrop
-        0.7s
-        ease;
-}
-
-@keyframes navbarDrop {
-
-    from {
-        opacity: 0;
-        transform:
-            translateY(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            translateY(0);
-    }
 }
 
 .brand {
     display: flex;
-
     align-items: center;
-
     gap: 14px;
 }
 
 .logo {
     font-size: 27px;
-
     font-weight: 900;
-
     letter-spacing: -1px;
 }
 
@@ -195,162 +123,70 @@ body::after {
 
 .creator {
     font-size: 12px;
-
     font-weight: 700;
-
     color: #697386;
-
     padding-left: 14px;
-
-    border-left:
-        1px solid
-        #dfe2ea;
-
-    letter-spacing: 0.3px;
-
-    opacity: 0.95;
-
-    transition:
-        all 0.25s ease;
-}
-
-.brand:hover .creator {
-    color: #635bff;
-
-    transform:
-        translateX(2px);
+    border-left: 1px solid #dfe2ea;
 }
 
 .mode-btn {
-    border:
-        1px solid
-        rgba(99, 91, 255, 0.15);
-
-    background:
-        rgba(99, 91, 255, 0.09);
-
+    border: 1px solid rgba(99, 91, 255, 0.15);
+    background: rgba(99, 91, 255, 0.09);
     color: var(--primary);
 
-    padding:
-        10px
-        17px;
-
+    padding: 10px 17px;
     border-radius: 12px;
 
     font-weight: 700;
-
     cursor: pointer;
-
-    transition:
-        0.25s ease;
-}
-
-.mode-btn:hover {
-    background:
-        rgba(99, 91, 255, 0.15);
-
-    transform:
-        translateY(-2px);
 }
 
 
-/* ============================
-   MAIN
-   ============================ */
+/* MAIN */
 
 .container {
     width: 90%;
-
     max-width: 1150px;
-
     margin: auto;
 }
 
 
-/* ============================
-   HERO
-   ============================ */
+/* HERO */
 
 .hero {
     text-align: center;
-
-    padding:
-        80px
-        20px
-        50px;
-
-    animation:
-        heroReveal
-        0.9s
-        ease;
-}
-
-@keyframes heroReveal {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
+    padding: 80px 20px 50px;
 }
 
 .hero::before {
-    content:
-        "✦ SIMPLE • FAST • SMART";
+    content: "✦ SIMPLE • FAST • SMART";
 
     display: inline-block;
 
-    padding:
-        8px
-        15px;
-
+    padding: 8px 15px;
     margin-bottom: 22px;
 
     border-radius: 999px;
 
-    background:
-        rgba(99, 91, 255, 0.08);
-
-    border:
-        1px solid
-        rgba(99, 91, 255, 0.14);
+    background: rgba(99, 91, 255, 0.08);
+    border: 1px solid rgba(99, 91, 255, 0.14);
 
     color: var(--primary);
 
     font-size: 12px;
-
     font-weight: 800;
-
     letter-spacing: 1px;
 }
 
 .hero h1 {
-    font-size:
-        clamp(
-            46px,
-            7vw,
-            76px
-        );
-
+    font-size: clamp(46px, 7vw, 76px);
     line-height: 0.98;
-
     letter-spacing: -4px;
-
     margin-bottom: 24px;
-
     font-weight: 900;
 }
 
 .hero h1 span {
-
     background:
         linear-gradient(
             90deg,
@@ -363,112 +199,59 @@ body::after {
     background-size: 300% auto;
 
     -webkit-background-clip: text;
-
     background-clip: text;
 
     color: transparent;
 
-    animation:
-        gradientMove
-        5s
-        linear
-        infinite;
+    animation: gradientMove 5s linear infinite;
 }
 
 @keyframes gradientMove {
-
     to {
-        background-position:
-            300%
-            center;
+        background-position: 300% center;
     }
 }
 
 .hero p {
     max-width: 650px;
-
     margin: auto;
 
     font-size: 19px;
-
     line-height: 1.6;
-
     color: var(--muted);
 }
 
 
-/* ============================
-   CARD
-   ============================ */
+/* CARD */
 
 .counter-card {
-
-    position: relative;
-
     background: var(--card);
 
     backdrop-filter: blur(22px);
-
     -webkit-backdrop-filter: blur(22px);
 
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.9);
 
     border-radius: 24px;
 
     padding: 28px;
 
     box-shadow:
-        0 25px 70px
-        rgba(32, 37, 56, 0.09),
-
-        0 5px 20px
-        rgba(32, 37, 56, 0.04);
-
-    animation:
-        cardReveal
-        1s
-        ease;
+        0 25px 70px rgba(32, 37, 56, 0.09),
+        0 5px 20px rgba(32, 37, 56, 0.04);
 
     margin-bottom: 40px;
 }
 
-@keyframes cardReveal {
 
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(40px)
-            scale(0.97);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-
-/* ============================
-   UPLOAD
-   ============================ */
+/* UPLOAD */
 
 .upload-area {
-
-    border:
-        2px dashed
-        #d2d6e2;
+    border: 2px dashed #d2d6e2;
 
     border-radius: 20px;
 
-    padding:
-        75px
-        25px;
+    padding: 75px 25px;
 
     text-align: center;
 
@@ -481,17 +264,11 @@ body::after {
             transparent 65%
         );
 
-    transition:
-        border-color 0.3s ease,
-        background 0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .upload-area:hover {
-
-    border-color:
-        var(--primary);
+    border-color: var(--primary);
 
     background:
         radial-gradient(
@@ -500,63 +277,26 @@ body::after {
             transparent 70%
         );
 
-    transform:
-        translateY(-4px);
-
-    box-shadow:
-        0 15px 40px
-        rgba(99, 91, 255, 0.08);
+    transform: translateY(-4px);
 }
 
 .upload-icon {
-
     font-size: 56px;
-
     margin-bottom: 18px;
-
-    display: inline-block;
-
-    animation:
-        uploadFloat
-        3s
-        ease-in-out
-        infinite;
-}
-
-@keyframes uploadFloat {
-
-    0%,
-    100% {
-        transform:
-            translateY(0)
-            rotate(0);
-    }
-
-    50% {
-        transform:
-            translateY(-9px)
-            rotate(2deg);
-    }
 }
 
 .upload-area h2 {
-
     font-size: 25px;
-
     margin-bottom: 9px;
 }
 
 .upload-area p {
-
     color: #7b8496;
-
     margin-bottom: 25px;
-
     font-size: 15px;
 }
 
 #uploadButton {
-
     border: none;
 
     background:
@@ -568,14 +308,11 @@ body::after {
 
     color: white;
 
-    padding:
-        13px
-        24px;
+    padding: 13px 24px;
 
     border-radius: 12px;
 
     font-size: 15px;
-
     font-weight: 800;
 
     cursor: pointer;
@@ -583,43 +320,22 @@ body::after {
     box-shadow:
         0 8px 20px
         rgba(99, 91, 255, 0.25);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
 }
 
 #uploadButton:hover {
-
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 12px 28px
-        rgba(99, 91, 255, 0.35);
-}
-
-#uploadButton:active {
-
-    transform:
-        scale(0.96);
+    transform: translateY(-3px);
 }
 
 
-/* ============================
-   WORKSPACE
-   ============================ */
+/* WORKSPACE */
 
 .workspace {
     display: none;
 }
 
 .toolbar {
-
     display: flex;
-
     align-items: center;
-
     gap: 10px;
 
     margin-bottom: 20px;
@@ -628,270 +344,164 @@ body::after {
 }
 
 .toolbar button {
+    border: 1px solid #e2e5ed;
 
-    border:
-        1px solid
-        #e2e5ed;
-
-    background:
-        rgba(245, 246, 250, 0.9);
+    background: rgba(245, 246, 250, 0.9);
 
     color: #30394c;
 
-    padding:
-        10px
-        15px;
+    padding: 10px 15px;
 
     border-radius: 11px;
 
     cursor: pointer;
 
     font-weight: 700;
-
-    transition:
-        all 0.2s ease;
 }
 
 .toolbar button:hover {
-
     background: white;
-
-    border-color:
-        #cdd2df;
-
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-        0 5px 14px
-        rgba(0, 0, 0, 0.05);
-}
-
-.toolbar button:active {
-
-    transform:
-        scale(0.96);
+    border-color: #cdd2df;
 }
 
 
-/* ============================
-   MARKER SIZE
-   ============================ */
+/* MARKER SIZE */
 
 .marker-size {
-
     display: flex;
-
     align-items: center;
-
     gap: 9px;
 
-    background:
-        rgba(245, 246, 250, 0.9);
+    background: rgba(245, 246, 250, 0.9);
 
-    border:
-        1px solid
-        #e5e7ee;
+    border: 1px solid #e5e7ee;
 
-    padding:
-        8px
-        12px;
+    padding: 8px 12px;
 
     border-radius: 11px;
 }
 
 .marker-size label {
-
     font-size: 13px;
-
     font-weight: 800;
 }
 
 #markerSize {
-
     width: 120px;
-
     cursor: pointer;
-
-    accent-color:
-        var(--primary);
+    accent-color: var(--primary);
 }
 
 #markerSizeValue {
-
-    min-width: 42px;
-
+    min-width: 48px;
     font-size: 13px;
-
     font-weight: 800;
 }
 
 
-/* ============================
-   NUMBER SIZE
-   ============================ */
+/* NUMBER SIZE */
 
 .number-size {
-
     display: flex;
-
     align-items: center;
-
     gap: 9px;
 
-    background:
-        rgba(245, 246, 250, 0.9);
+    background: rgba(245, 246, 250, 0.9);
 
-    border:
-        1px solid
-        #e5e7ee;
+    border: 1px solid #e5e7ee;
 
-    padding:
-        8px
-        12px;
+    padding: 8px 12px;
 
     border-radius: 11px;
 }
 
 .number-size label {
-
     font-size: 13px;
-
     font-weight: 800;
 }
 
 #numberSize {
-
     width: 120px;
-
     cursor: pointer;
-
-    accent-color:
-        var(--primary);
+    accent-color: var(--primary);
 }
 
 #numberSizeValue {
-
     min-width: 42px;
-
     font-size: 13px;
-
     font-weight: 800;
 }
 
 
-/* ============================
-   COLOR PICKER
-   ============================ */
+/* COLOR */
 
 .color-picker {
-
     display: flex;
-
     align-items: center;
-
     gap: 10px;
 
-    background:
-        rgba(245, 246, 250, 0.9);
+    background: rgba(245, 246, 250, 0.9);
 
-    border:
-        1px solid
-        #e5e7ee;
+    border: 1px solid #e5e7ee;
 
-    padding:
-        8px
-        12px;
+    padding: 8px 12px;
 
     border-radius: 11px;
 }
 
 .color-picker label {
-
     font-size: 13px;
-
     font-weight: 800;
 }
 
 .color-grid {
-
     display: flex;
-
     gap: 7px;
-
     flex-wrap: wrap;
 }
 
 .color-option {
-
     width: 25px;
-
     height: 25px;
-
     min-width: 25px;
 
     padding: 0;
 
     border-radius: 50%;
 
-    border:
-        2px solid
-        white;
+    border: 2px solid white;
 
-    outline:
-        1px solid
-        #d1d5db;
+    outline: 1px solid #d1d5db;
 
     cursor: pointer;
 
-    transition:
-        transform 0.18s ease,
-        box-shadow 0.18s ease;
+    transition: 0.18s ease;
 }
 
 .color-option:hover {
-
-    transform:
-        scale(1.18);
-
-    box-shadow:
-        0 4px 12px
-        rgba(0, 0, 0, 0.12);
+    transform: scale(1.18);
 }
 
 .color-option.selected {
-
-    outline:
-        3px solid
-        var(--text);
-
-    transform:
-        scale(1.15);
+    outline: 3px solid var(--text);
+    transform: scale(1.15);
 }
 
 
-/* ============================
-   TOTAL
-   ============================ */
+/* TOTAL */
 
 .total {
-
     margin-left: auto;
 
     display: flex;
-
     align-items: center;
-
     gap: 8px;
 
-    padding:
-        8px
-        14px;
+    padding: 8px 14px;
 
     border-radius: 12px;
 
-    background:
-        rgba(99, 91, 255, 0.07);
+    background: rgba(99, 91, 255, 0.07);
 
     color: #4c5568;
 
@@ -899,47 +509,17 @@ body::after {
 }
 
 .total strong {
-
-    color:
-        var(--primary);
+    color: var(--primary);
 
     font-size: 28px;
 
     line-height: 1;
-
-    display: inline-block;
-
-    animation:
-        totalPop
-        0.25s
-        ease;
-}
-
-@keyframes totalPop {
-
-    0% {
-        transform:
-            scale(0.7);
-    }
-
-    70% {
-        transform:
-            scale(1.2);
-    }
-
-    100% {
-        transform:
-            scale(1);
-    }
 }
 
 
-/* ============================
-   IMAGE
-   ============================ */
+/* IMAGE */
 
 .image-container {
-
     position: relative;
 
     display: inline-block;
@@ -957,41 +537,16 @@ body::after {
     box-shadow:
         0 15px 45px
         rgba(0, 0, 0, 0.14);
-
-    animation:
-        imageAppear
-        0.5s
-        ease;
-}
-
-@keyframes imageAppear {
-
-    from {
-        opacity: 0;
-
-        transform:
-            scale(0.98);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            scale(1);
-    }
 }
 
 #uploadedImage {
-
     display: block;
 
     max-width: 100%;
-
     max-height: 650px;
 }
 
 #markers {
-
     position: absolute;
 
     inset: 0;
@@ -1000,18 +555,14 @@ body::after {
 }
 
 
-/* ============================
-   MARKERS
-   ============================ */
+/* MARKERS */
 
 .marker {
-
     position: absolute;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     border-radius: 50%;
@@ -1028,8 +579,7 @@ body::after {
         translate(-50%, -50%);
 
     border:
-        1px solid
-        white;
+        1px solid white;
 
     box-shadow:
         0 3px 8px
@@ -1044,18 +594,12 @@ body::after {
     animation:
         markerPop
         0.28s
-        cubic-bezier(
-            0.2,
-            1.4,
-            0.4,
-            1
-        );
+        ease;
 }
 
 @keyframes markerPop {
 
     0% {
-
         opacity: 0;
 
         transform:
@@ -1064,14 +608,12 @@ body::after {
     }
 
     70% {
-
         transform:
             translate(-50%, -50%)
             scale(1.15);
     }
 
     100% {
-
         opacity: 1;
 
         transform:
@@ -1081,73 +623,43 @@ body::after {
 }
 
 
-/* ============================
-   FOOTER
-   ============================ */
+/* FOOTER */
 
 .footer {
-
     text-align: center;
 
-    padding:
-        15px
-        20px
-        35px;
+    padding: 15px 20px 35px;
 
     color: #9aa1b2;
 
     font-size: 13px;
-
-    letter-spacing: 0.2px;
-}
-
-.footer p {
-    opacity: 0.85;
 }
 
 
-/* ============================
-   MOBILE
-   ============================ */
+/* MOBILE */
 
 @media (max-width: 700px) {
 
     .navbar {
-
         height: 64px;
-
-        padding:
-            0
-            5%;
+        padding: 0 5%;
     }
 
     .logo {
         font-size: 23px;
     }
 
-    .brand {
-        gap: 9px;
-    }
-
     .creator {
-
         font-size: 10px;
-
         padding-left: 9px;
     }
 
     .hero {
-
-        padding:
-            60px
-            12px
-            35px;
+        padding: 60px 12px 35px;
     }
 
     .hero h1 {
-
         font-size: 43px;
-
         letter-spacing: -2.5px;
     }
 
@@ -1156,23 +668,16 @@ body::after {
     }
 
     .counter-card {
-
         padding: 15px;
-
         border-radius: 18px;
     }
 
     .upload-area {
-
-        padding:
-            50px
-            15px;
+        padding: 50px 15px;
     }
 
     .toolbar {
-
         flex-direction: column;
-
         align-items: stretch;
     }
 
@@ -1180,28 +685,20 @@ body::after {
         width: 100%;
     }
 
-    .total {
-
-        margin-left: 0;
-
-        justify-content: center;
-    }
-
     .marker-size,
     .number-size,
     .color-picker {
-
         width: 100%;
     }
 
     #markerSize,
     #numberSize {
-
         flex: 1;
     }
 
-    .color-grid {
-        flex: 1;
+    .total {
+        margin-left: 0;
+        justify-content: center;
     }
 
     .image-container {
@@ -1209,30 +706,8 @@ body::after {
     }
 
     #uploadedImage {
-
         width: 100%;
-
         height: auto;
     }
 }
-
-
-/* ============================
-   REDUCED MOTION
-   ============================ */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before {
-
-        animation-duration:
-            0.01ms !important;
-
-        animation-iteration-count:
-            1 !important;
-
-        transition-duration:
-            0.01ms !important;
-    }
-}
+```
