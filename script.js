@@ -1,6 +1,6 @@
 ```javascript
 // ============================
-// GET ELEMENTS
+// ELEMENTS
 // ============================
 
 const imageInput = document.getElementById("imageInput");
@@ -28,7 +28,7 @@ const colorOptions =
 
 
 // ============================
-// VARIABLES
+// SETTINGS
 // ============================
 
 let count = 0;
@@ -51,7 +51,7 @@ uploadButton.addEventListener("click", function (event) {
 });
 
 
-// Clicking the upload box also opens picker
+// Clicking the upload box opens picker
 
 uploadArea.addEventListener("click", function (event) {
 
@@ -77,7 +77,7 @@ imageInput.addEventListener("change", function () {
     }
 
 
-    // Make sure the file is an image
+    // Check that the file is an image
 
     if (!file.type.startsWith("image/")) {
 
@@ -87,18 +87,18 @@ imageInput.addEventListener("change", function () {
     }
 
 
-    // Create temporary image URL
+    // Create image URL
 
     const imageURL =
         URL.createObjectURL(file);
 
 
-    // Put image into website
+    // Display image
 
     uploadedImage.src = imageURL;
 
 
-    // Hide upload screen
+    // Hide upload area
 
     uploadArea.style.display = "none";
 
@@ -108,7 +108,7 @@ imageInput.addEventListener("change", function () {
     workspace.style.display = "block";
 
 
-    // Reset counting
+    // Reset counter
 
     resetCounter();
 
@@ -126,8 +126,6 @@ uploadedImage.addEventListener("load", function () {
 });
 
 
-// Keep marker layer the same size as image
-
 function updateMarkerLayer() {
 
     markers.style.width =
@@ -140,12 +138,12 @@ function updateMarkerLayer() {
 
 
 // ============================
-// CLICK IMAGE TO COUNT
+// COUNT OBJECTS
 // ============================
 
 imageContainer.addEventListener("click", function (event) {
 
-    // Only count when the actual image is clicked
+    // Only count clicks directly on image
 
     if (event.target !== uploadedImage) {
         return;
@@ -156,7 +154,7 @@ imageContainer.addEventListener("click", function (event) {
         uploadedImage.getBoundingClientRect();
 
 
-    // Position of click INSIDE image
+    // Click position
 
     const x =
         event.clientX - rect.left;
@@ -179,12 +177,12 @@ imageContainer.addEventListener("click", function (event) {
     marker.className = "marker";
 
 
-    // Put number inside marker
+    // Number
 
     marker.textContent = count;
 
 
-    // Position marker
+    // Position
 
     marker.style.left =
         x + "px";
@@ -193,19 +191,11 @@ imageContainer.addEventListener("click", function (event) {
         y + "px";
 
 
-    // Get marker size
+    // Marker size
 
     const markerSizeNumber =
         Number(markerSize.value);
 
-
-    // Get number size
-
-    const numberSizeNumber =
-        Number(numberSize.value);
-
-
-    // Apply marker size
 
     marker.style.width =
         markerSizeNumber + "px";
@@ -214,19 +204,23 @@ imageContainer.addEventListener("click", function (event) {
         markerSizeNumber + "px";
 
 
-    // Apply number size
+    // Number size
+
+    const numberSizeNumber =
+        Number(numberSize.value);
+
 
     marker.style.fontSize =
         numberSizeNumber + "px";
 
 
-    // Apply color
+    // Color
 
     marker.style.backgroundColor =
         currentColor;
 
 
-    // Add marker to page
+    // Add marker
 
     markers.appendChild(marker);
 
@@ -245,7 +239,7 @@ imageContainer.addEventListener("click", function (event) {
 
 
 // ============================
-// MARKER SIZE SLIDER
+// MARKER SIZE
 // ============================
 
 markerSize.addEventListener("input", function () {
@@ -254,13 +248,11 @@ markerSize.addEventListener("input", function () {
         Number(markerSize.value);
 
 
-    // Update text
-
     markerSizeValue.textContent =
         size + "px";
 
 
-    // Update every existing marker
+    // Update existing markers
 
     markerList.forEach(function (marker) {
 
@@ -276,7 +268,7 @@ markerSize.addEventListener("input", function () {
 
 
 // ============================
-// NUMBER SIZE SLIDER
+// NUMBER SIZE
 // ============================
 
 numberSize.addEventListener("input", function () {
@@ -285,13 +277,11 @@ numberSize.addEventListener("input", function () {
         Number(numberSize.value);
 
 
-    // Update text
-
     numberSizeValue.textContent =
         size + "px";
 
 
-    // Update numbers on existing markers
+    // Update existing numbers
 
     markerList.forEach(function (marker) {
 
@@ -311,13 +301,11 @@ colorOptions.forEach(function (button) {
 
     button.addEventListener("click", function () {
 
-        // Get selected color
-
         currentColor =
             button.dataset.color;
 
 
-        // Remove selected from all colors
+        // Remove selection
 
         colorOptions.forEach(function (option) {
 
@@ -326,12 +314,12 @@ colorOptions.forEach(function (button) {
         });
 
 
-        // Select clicked color
+        // Select new color
 
         button.classList.add("selected");
 
 
-        // Change existing markers
+        // Update existing markers
 
         markerList.forEach(function (marker) {
 
@@ -356,23 +344,15 @@ undoButton.addEventListener("click", function () {
     }
 
 
-    // Get last marker
-
     const lastMarker =
         markerList.pop();
 
 
-    // Remove it
-
     lastMarker.remove();
 
 
-    // Reduce count
-
     count--;
 
-
-    // Update total
 
     countDisplay.textContent =
         count;
@@ -397,16 +377,10 @@ clearButton.addEventListener("click", function () {
 
 function resetCounter() {
 
-    // Reset count
-
     count = 0;
 
+    countDisplay.textContent = "0";
 
-    countDisplay.textContent =
-        "0";
-
-
-    // Remove all markers
 
     markerList.forEach(function (marker) {
 
@@ -422,22 +396,20 @@ function resetCounter() {
 
     markerSize.value = 20;
 
-    markerSizeValue.textContent =
-        "20px";
+    markerSizeValue.textContent = "20px";
 
 
     // Reset number size
 
     numberSize.value = 12;
 
-    numberSizeValue.textContent =
-        "12px";
+    numberSizeValue.textContent = "12px";
 
 }
 
 
 // ============================
-// DRAG & DROP IMAGE
+// DRAG & DROP
 // ============================
 
 uploadArea.addEventListener("dragover", function (event) {
@@ -452,8 +424,7 @@ uploadArea.addEventListener("dragover", function (event) {
 
 uploadArea.addEventListener("dragleave", function () {
 
-    uploadArea.style.borderColor =
-        "";
+    uploadArea.style.borderColor = "";
 
 });
 
@@ -462,9 +433,7 @@ uploadArea.addEventListener("drop", function (event) {
 
     event.preventDefault();
 
-
-    uploadArea.style.borderColor =
-        "";
+    uploadArea.style.borderColor = "";
 
 
     const file =
@@ -481,26 +450,3 @@ uploadArea.addEventListener("drop", function (event) {
         alert("Please drop an image file.");
 
         return;
-    }
-
-
-    const imageURL =
-        URL.createObjectURL(file);
-
-
-    uploadedImage.src =
-        imageURL;
-
-
-    uploadArea.style.display =
-        "none";
-
-
-    workspace.style.display =
-        "block";
-
-
-    resetCounter();
-
-});
-```
