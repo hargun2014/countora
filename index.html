@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Countora — Object Counter</title>
@@ -92,6 +92,8 @@
                     </button>
 
 
+                    <!-- MARKER SIZE -->
+
                     <div class="marker-size">
 
                         <label for="markerSize">
@@ -114,6 +116,32 @@
                     </div>
 
 
+                    <!-- NUMBER SIZE -->
+
+                    <div class="number-size">
+
+                        <label for="numberSize">
+                            Number Size
+                        </label>
+
+                        <input
+                            type="range"
+                            id="numberSize"
+                            min="1"
+                            max="40"
+                            step="1"
+                            value="12"
+                        >
+
+                        <span id="numberSizeValue">
+                            12px
+                        </span>
+
+                    </div>
+
+
+                    <!-- COLOR -->
+
                     <div class="color-picker">
 
                         <label>
@@ -122,50 +150,68 @@
 
                         <div class="color-grid">
 
-                            <button class="color-option selected"
+                            <button
+                                class="color-option selected"
                                 data-color="#4f46e5"
                                 style="background:#4f46e5;"
-                                aria-label="Purple"></button>
+                                aria-label="Purple">
+                            </button>
 
-                            <button class="color-option"
+                            <button
+                                class="color-option"
                                 data-color="#ef4444"
                                 style="background:#ef4444;"
-                                aria-label="Red"></button>
+                                aria-label="Red">
+                            </button>
 
-                            <button class="color-option"
+                            <button
+                                class="color-option"
                                 data-color="#22c55e"
                                 style="background:#22c55e;"
-                                aria-label="Green"></button>
+                                aria-label="Green">
+                            </button>
 
-                            <button class="color-option"
+                            <button
+                                class="color-option"
                                 data-color="#f59e0b"
                                 style="background:#f59e0b;"
-                                aria-label="Orange"></button>
+                                aria-label="Orange">
+                            </button>
 
-                            <button class="color-option"
+                            <button
+                                class="color-option"
                                 data-color="#06b6d4"
                                 style="background:#06b6d4;"
-                                aria-label="Cyan"></button>
+                                aria-label="Cyan">
+                            </button>
 
-                            <button class="color-option"
+                            <button
+                                class="color-option"
                                 data-color="#ec4899"
                                 style="background:#ec4899;"
-                                aria-label="Pink"></button>
+                                aria-label="Pink">
+                            </button>
 
-                            <button class="color-option"
+                            <button
+                                class="color-option"
                                 data-color="#111827"
                                 style="background:#111827;"
-                                aria-label="Black"></button>
+                                aria-label="Black">
+                            </button>
 
-                            <button class="color-option"
+                            <button
+                                class="color-option"
                                 data-color="#ffffff"
                                 style="background:#ffffff;"
-                                aria-label="White"></button>
+                                aria-label="White">
+                            </button>
 
                         </div>
 
                     </div>
 
+
+                    <!-- TOTAL -->
 
                     <div class="total">
 
@@ -180,7 +226,9 @@
                 </div>
 
 
-                <div class="image-container" id="imageContainer">
+                <div
+                    class="image-container"
+                    id="imageContainer">
 
                     <img
                         id="uploadedImage"
