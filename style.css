@@ -26,9 +26,9 @@ body {
 }
 
 
-/* ================================
+/* ============================
    ANIMATED BACKGROUND
-================================ */
+   ============================ */
 
 body::before,
 body::after {
@@ -55,7 +55,12 @@ body::before {
     top: -180px;
     left: -160px;
 
-    animation: backgroundFloat1 14s ease-in-out infinite alternate;
+    animation:
+        backgroundFloat1
+        14s
+        ease-in-out
+        infinite
+        alternate;
 }
 
 body::after {
@@ -64,45 +69,60 @@ body::after {
     right: -180px;
     bottom: -180px;
 
-    animation: backgroundFloat2 16s ease-in-out infinite alternate;
+    animation:
+        backgroundFloat2
+        16s
+        ease-in-out
+        infinite
+        alternate;
 }
 
 @keyframes backgroundFloat1 {
 
     0% {
-        transform: translate(0, 0) scale(1);
+        transform:
+            translate(0, 0)
+            scale(1);
     }
 
     50% {
-        transform: translate(130px, 100px) scale(1.15);
+        transform:
+            translate(130px, 100px)
+            scale(1.15);
     }
 
     100% {
-        transform: translate(50px, 220px) scale(0.9);
+        transform:
+            translate(50px, 220px)
+            scale(0.9);
     }
-
 }
 
 @keyframes backgroundFloat2 {
 
     0% {
-        transform: translate(0, 0) scale(1);
+        transform:
+            translate(0, 0)
+            scale(1);
     }
 
     50% {
-        transform: translate(-120px, -100px) scale(1.15);
+        transform:
+            translate(-120px, -100px)
+            scale(1.15);
     }
 
     100% {
-        transform: translate(-40px, -220px) scale(0.9);
+        transform:
+            translate(-40px, -220px)
+            scale(0.9);
     }
-
 }
 
 
-/* ================================
+/* ============================
    NAVBAR
-================================ */
+   ============================ */
 
 .navbar {
     height: 72px;
@@ -115,13 +135,16 @@ body::after {
 
     padding: 0 6%;
 
-    background: rgba(255, 255, 255, 0.72);
+    background:
+        rgba(255, 255, 255, 0.72);
 
     backdrop-filter: blur(18px);
 
     -webkit-backdrop-filter: blur(18px);
 
-    border-bottom: 1px solid rgba(220, 223, 233, 0.8);
+    border-bottom:
+        1px solid
+        rgba(220, 223, 233, 0.8);
 
     position: sticky;
 
@@ -129,37 +152,40 @@ body::after {
 
     z-index: 100;
 
-    animation: navbarDrop 0.7s ease;
+    animation:
+        navbarDrop
+        0.7s
+        ease;
 }
 
 @keyframes navbarDrop {
 
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform:
+            translateY(-20px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
-
 }
-
-
-/* ================================
-   BRAND
-================================ */
 
 .brand {
     display: flex;
+
     align-items: center;
+
     gap: 14px;
 }
 
 .logo {
     font-size: 27px;
+
     font-weight: 900;
+
     letter-spacing: -1px;
 }
 
@@ -169,39 +195,45 @@ body::after {
 
 .creator {
     font-size: 12px;
+
     font-weight: 700;
 
     color: #697386;
 
     padding-left: 14px;
 
-    border-left: 1px solid #dfe2ea;
+    border-left:
+        1px solid
+        #dfe2ea;
 
     letter-spacing: 0.3px;
 
     opacity: 0.95;
 
-    transition: all 0.25s ease;
+    transition:
+        all 0.25s ease;
 }
 
 .brand:hover .creator {
     color: #635bff;
-    transform: translateX(2px);
+
+    transform:
+        translateX(2px);
 }
 
-
-/* ================================
-   MODE BUTTON
-================================ */
-
 .mode-btn {
-    border: 1px solid rgba(99, 91, 255, 0.15);
+    border:
+        1px solid
+        rgba(99, 91, 255, 0.15);
 
-    background: rgba(99, 91, 255, 0.09);
+    background:
+        rgba(99, 91, 255, 0.09);
 
     color: var(--primary);
 
-    padding: 10px 17px;
+    padding:
+        10px
+        17px;
 
     border-radius: 12px;
 
@@ -209,19 +241,22 @@ body::after {
 
     cursor: pointer;
 
-    transition: 0.25s ease;
+    transition:
+        0.25s ease;
 }
 
 .mode-btn:hover {
-    background: rgba(99, 91, 255, 0.15);
+    background:
+        rgba(99, 91, 255, 0.15);
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
 
-/* ================================
+/* ============================
    MAIN
-================================ */
+   ============================ */
 
 .container {
     width: 90%;
@@ -232,46 +267,61 @@ body::after {
 }
 
 
-/* ================================
+/* ============================
    HERO
-================================ */
+   ============================ */
 
 .hero {
     text-align: center;
 
-    padding: 80px 20px 50px;
+    padding:
+        80px
+        20px
+        50px;
 
-    animation: heroReveal 0.9s ease;
+    animation:
+        heroReveal
+        0.9s
+        ease;
 }
 
 @keyframes heroReveal {
 
     from {
         opacity: 0;
-        transform: translateY(30px);
+
+        transform:
+            translateY(30px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
-    }
 
+        transform:
+            translateY(0);
+    }
 }
 
 .hero::before {
-    content: "✦ SIMPLE • FAST • SMART";
+    content:
+        "✦ SIMPLE • FAST • SMART";
 
     display: inline-block;
 
-    padding: 8px 15px;
+    padding:
+        8px
+        15px;
 
     margin-bottom: 22px;
 
     border-radius: 999px;
 
-    background: rgba(99, 91, 255, 0.08);
+    background:
+        rgba(99, 91, 255, 0.08);
 
-    border: 1px solid rgba(99, 91, 255, 0.14);
+    border:
+        1px solid
+        rgba(99, 91, 255, 0.14);
 
     color: var(--primary);
 
@@ -283,7 +333,12 @@ body::after {
 }
 
 .hero h1 {
-    font-size: clamp(46px, 7vw, 76px);
+    font-size:
+        clamp(
+            46px,
+            7vw,
+            76px
+        );
 
     line-height: 0.98;
 
@@ -295,13 +350,15 @@ body::after {
 }
 
 .hero h1 span {
-    background: linear-gradient(
-        90deg,
-        #635bff,
-        #8b5cf6,
-        #06b6d4,
-        #635bff
-    );
+
+    background:
+        linear-gradient(
+            90deg,
+            #635bff,
+            #8b5cf6,
+            #06b6d4,
+            #635bff
+        );
 
     background-size: 300% auto;
 
@@ -311,15 +368,20 @@ body::after {
 
     color: transparent;
 
-    animation: gradientMove 5s linear infinite;
+    animation:
+        gradientMove
+        5s
+        linear
+        infinite;
 }
 
 @keyframes gradientMove {
 
     to {
-        background-position: 300% center;
+        background-position:
+            300%
+            center;
     }
-
 }
 
 .hero p {
@@ -335,11 +397,12 @@ body::after {
 }
 
 
-/* ================================
-   COUNTER CARD
-================================ */
+/* ============================
+   CARD
+   ============================ */
 
 .counter-card {
+
     position: relative;
 
     background: var(--card);
@@ -348,17 +411,25 @@ body::after {
 
     -webkit-backdrop-filter: blur(22px);
 
-    border: 1px solid rgba(255, 255, 255, 0.9);
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.9);
 
     border-radius: 24px;
 
     padding: 28px;
 
     box-shadow:
-        0 25px 70px rgba(32, 37, 56, 0.09),
-        0 5px 20px rgba(32, 37, 56, 0.04);
+        0 25px 70px
+        rgba(32, 37, 56, 0.09),
 
-    animation: cardReveal 1s ease;
+        0 5px 20px
+        rgba(32, 37, 56, 0.04);
+
+    animation:
+        cardReveal
+        1s
+        ease;
 
     margin-bottom: 40px;
 }
@@ -380,20 +451,24 @@ body::after {
             translateY(0)
             scale(1);
     }
-
 }
 
 
-/* ================================
+/* ============================
    UPLOAD
-================================ */
+   ============================ */
 
 .upload-area {
-    border: 2px dashed #d2d6e2;
+
+    border:
+        2px dashed
+        #d2d6e2;
 
     border-radius: 20px;
 
-    padding: 75px 25px;
+    padding:
+        75px
+        25px;
 
     text-align: center;
 
@@ -414,7 +489,9 @@ body::after {
 }
 
 .upload-area:hover {
-    border-color: var(--primary);
+
+    border-color:
+        var(--primary);
 
     background:
         radial-gradient(
@@ -423,7 +500,8 @@ body::after {
             transparent 70%
         );
 
-    transform: translateY(-4px);
+    transform:
+        translateY(-4px);
 
     box-shadow:
         0 15px 40px
@@ -431,35 +509,45 @@ body::after {
 }
 
 .upload-icon {
+
     font-size: 56px;
 
     margin-bottom: 18px;
 
     display: inline-block;
 
-    animation: uploadFloat 3s ease-in-out infinite;
+    animation:
+        uploadFloat
+        3s
+        ease-in-out
+        infinite;
 }
 
 @keyframes uploadFloat {
 
     0%,
     100% {
-        transform: translateY(0) rotate(0);
+        transform:
+            translateY(0)
+            rotate(0);
     }
 
     50% {
-        transform: translateY(-9px) rotate(2deg);
+        transform:
+            translateY(-9px)
+            rotate(2deg);
     }
-
 }
 
 .upload-area h2 {
+
     font-size: 25px;
 
     margin-bottom: 9px;
 }
 
 .upload-area p {
+
     color: #7b8496;
 
     margin-bottom: 25px;
@@ -468,6 +556,7 @@ body::after {
 }
 
 #uploadButton {
+
     border: none;
 
     background:
@@ -479,7 +568,9 @@ body::after {
 
     color: white;
 
-    padding: 13px 24px;
+    padding:
+        13px
+        24px;
 
     border-radius: 12px;
 
@@ -499,7 +590,9 @@ body::after {
 }
 
 #uploadButton:hover {
-    transform: translateY(-3px);
+
+    transform:
+        translateY(-3px);
 
     box-shadow:
         0 12px 28px
@@ -507,24 +600,22 @@ body::after {
 }
 
 #uploadButton:active {
-    transform: scale(0.96);
+
+    transform:
+        scale(0.96);
 }
 
 
-/* ================================
+/* ============================
    WORKSPACE
-================================ */
+   ============================ */
 
 .workspace {
     display: none;
 }
 
-
-/* ================================
-   TOOLBAR
-================================ */
-
 .toolbar {
+
     display: flex;
 
     align-items: center;
@@ -537,13 +628,19 @@ body::after {
 }
 
 .toolbar button {
-    border: 1px solid #e2e5ed;
 
-    background: rgba(245, 246, 250, 0.9);
+    border:
+        1px solid
+        #e2e5ed;
+
+    background:
+        rgba(245, 246, 250, 0.9);
 
     color: #30394c;
 
-    padding: 10px 15px;
+    padding:
+        10px
+        15px;
 
     border-radius: 11px;
 
@@ -551,15 +648,19 @@ body::after {
 
     font-weight: 700;
 
-    transition: all 0.2s ease;
+    transition:
+        all 0.2s ease;
 }
 
 .toolbar button:hover {
+
     background: white;
 
-    border-color: #cdd2df;
+    border-color:
+        #cdd2df;
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 
     box-shadow:
         0 5px 14px
@@ -567,45 +668,57 @@ body::after {
 }
 
 .toolbar button:active {
-    transform: scale(0.96);
+
+    transform:
+        scale(0.96);
 }
 
 
-/* ================================
+/* ============================
    MARKER SIZE
-================================ */
+   ============================ */
 
 .marker-size {
+
     display: flex;
 
     align-items: center;
 
     gap: 9px;
 
-    background: rgba(245, 246, 250, 0.9);
+    background:
+        rgba(245, 246, 250, 0.9);
 
-    border: 1px solid #e5e7ee;
+    border:
+        1px solid
+        #e5e7ee;
 
-    padding: 8px 12px;
+    padding:
+        8px
+        12px;
 
     border-radius: 11px;
 }
 
 .marker-size label {
+
     font-size: 13px;
 
     font-weight: 800;
 }
 
 #markerSize {
+
     width: 120px;
 
     cursor: pointer;
 
-    accent-color: var(--primary);
+    accent-color:
+        var(--primary);
 }
 
 #markerSizeValue {
+
     min-width: 42px;
 
     font-size: 13px;
@@ -614,33 +727,94 @@ body::after {
 }
 
 
-/* ================================
+/* ============================
+   NUMBER SIZE
+   ============================ */
+
+.number-size {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    background:
+        rgba(245, 246, 250, 0.9);
+
+    border:
+        1px solid
+        #e5e7ee;
+
+    padding:
+        8px
+        12px;
+
+    border-radius: 11px;
+}
+
+.number-size label {
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+#numberSize {
+
+    width: 120px;
+
+    cursor: pointer;
+
+    accent-color:
+        var(--primary);
+}
+
+#numberSizeValue {
+
+    min-width: 42px;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+
+/* ============================
    COLOR PICKER
-================================ */
+   ============================ */
 
 .color-picker {
+
     display: flex;
 
     align-items: center;
 
     gap: 10px;
 
-    background: rgba(245, 246, 250, 0.9);
+    background:
+        rgba(245, 246, 250, 0.9);
 
-    border: 1px solid #e5e7ee;
+    border:
+        1px solid
+        #e5e7ee;
 
-    padding: 8px 12px;
+    padding:
+        8px
+        12px;
 
     border-radius: 11px;
 }
 
 .color-picker label {
+
     font-size: 13px;
 
     font-weight: 800;
 }
 
 .color-grid {
+
     display: flex;
 
     gap: 7px;
@@ -649,6 +823,7 @@ body::after {
 }
 
 .color-option {
+
     width: 25px;
 
     height: 25px;
@@ -659,9 +834,13 @@ body::after {
 
     border-radius: 50%;
 
-    border: 2px solid white;
+    border:
+        2px solid
+        white;
 
-    outline: 1px solid #d1d5db;
+    outline:
+        1px solid
+        #d1d5db;
 
     cursor: pointer;
 
@@ -671,7 +850,9 @@ body::after {
 }
 
 .color-option:hover {
-    transform: scale(1.18);
+
+    transform:
+        scale(1.18);
 
     box-shadow:
         0 4px 12px
@@ -679,17 +860,22 @@ body::after {
 }
 
 .color-option.selected {
-    outline: 3px solid var(--text);
 
-    transform: scale(1.15);
+    outline:
+        3px solid
+        var(--text);
+
+    transform:
+        scale(1.15);
 }
 
 
-/* ================================
+/* ============================
    TOTAL
-================================ */
+   ============================ */
 
 .total {
+
     margin-left: auto;
 
     display: flex;
@@ -698,11 +884,14 @@ body::after {
 
     gap: 8px;
 
-    padding: 8px 14px;
+    padding:
+        8px
+        14px;
 
     border-radius: 12px;
 
-    background: rgba(99, 91, 255, 0.07);
+    background:
+        rgba(99, 91, 255, 0.07);
 
     color: #4c5568;
 
@@ -710,7 +899,9 @@ body::after {
 }
 
 .total strong {
-    color: var(--primary);
+
+    color:
+        var(--primary);
 
     font-size: 28px;
 
@@ -718,31 +909,37 @@ body::after {
 
     display: inline-block;
 
-    animation: totalPop 0.25s ease;
+    animation:
+        totalPop
+        0.25s
+        ease;
 }
 
 @keyframes totalPop {
 
     0% {
-        transform: scale(0.7);
+        transform:
+            scale(0.7);
     }
 
     70% {
-        transform: scale(1.2);
+        transform:
+            scale(1.2);
     }
 
     100% {
-        transform: scale(1);
+        transform:
+            scale(1);
     }
-
 }
 
 
-/* ================================
+/* ============================
    IMAGE
-================================ */
+   ============================ */
 
 .image-container {
+
     position: relative;
 
     display: inline-block;
@@ -761,7 +958,10 @@ body::after {
         0 15px 45px
         rgba(0, 0, 0, 0.14);
 
-    animation: imageAppear 0.5s ease;
+    animation:
+        imageAppear
+        0.5s
+        ease;
 }
 
 @keyframes imageAppear {
@@ -769,18 +969,20 @@ body::after {
     from {
         opacity: 0;
 
-        transform: scale(0.98);
+        transform:
+            scale(0.98);
     }
 
     to {
         opacity: 1;
 
-        transform: scale(1);
+        transform:
+            scale(1);
     }
-
 }
 
 #uploadedImage {
+
     display: block;
 
     max-width: 100%;
@@ -789,6 +991,7 @@ body::after {
 }
 
 #markers {
+
     position: absolute;
 
     inset: 0;
@@ -797,11 +1000,12 @@ body::after {
 }
 
 
-/* ================================
+/* ============================
    MARKERS
-================================ */
+   ============================ */
 
 .marker {
+
     position: absolute;
 
     display: flex;
@@ -820,9 +1024,12 @@ body::after {
 
     line-height: 1;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
-    border: 1px solid white;
+    border:
+        1px solid
+        white;
 
     box-shadow:
         0 3px 8px
@@ -848,6 +1055,7 @@ body::after {
 @keyframes markerPop {
 
     0% {
+
         opacity: 0;
 
         transform:
@@ -856,27 +1064,29 @@ body::after {
     }
 
     70% {
+
         transform:
             translate(-50%, -50%)
             scale(1.15);
     }
 
     100% {
+
         opacity: 1;
 
         transform:
             translate(-50%, -50%)
             scale(1);
     }
-
 }
 
 
-/* ================================
+/* ============================
    FOOTER
-================================ */
+   ============================ */
 
 .footer {
+
     text-align: center;
 
     padding:
@@ -896,16 +1106,19 @@ body::after {
 }
 
 
-/* ================================
+/* ============================
    MOBILE
-================================ */
+   ============================ */
 
 @media (max-width: 700px) {
 
     .navbar {
+
         height: 64px;
 
-        padding: 0 5%;
+        padding:
+            0
+            5%;
     }
 
     .logo {
@@ -917,12 +1130,14 @@ body::after {
     }
 
     .creator {
+
         font-size: 10px;
 
         padding-left: 9px;
     }
 
     .hero {
+
         padding:
             60px
             12px
@@ -930,6 +1145,7 @@ body::after {
     }
 
     .hero h1 {
+
         font-size: 43px;
 
         letter-spacing: -2.5px;
@@ -940,18 +1156,21 @@ body::after {
     }
 
     .counter-card {
+
         padding: 15px;
 
         border-radius: 18px;
     }
 
     .upload-area {
+
         padding:
             50px
             15px;
     }
 
     .toolbar {
+
         flex-direction: column;
 
         align-items: stretch;
@@ -962,17 +1181,22 @@ body::after {
     }
 
     .total {
+
         margin-left: 0;
 
         justify-content: center;
     }
 
     .marker-size,
+    .number-size,
     .color-picker {
+
         width: 100%;
     }
 
-    #markerSize {
+    #markerSize,
+    #numberSize {
+
         flex: 1;
     }
 
@@ -985,23 +1209,23 @@ body::after {
     }
 
     #uploadedImage {
+
         width: 100%;
 
         height: auto;
     }
-
 }
 
 
-/* ================================
-   REDUCE MOTION
-================================ */
+/* ============================
+   REDUCED MOTION
+   ============================ */
 
 @media (prefers-reduced-motion: reduce) {
 
     *,
-    *::before,
-    *::after {
+    *::before {
+
         animation-duration:
             0.01ms !important;
 
@@ -1011,5 +1235,4 @@ body::after {
         transition-duration:
             0.01ms !important;
     }
-
 }
